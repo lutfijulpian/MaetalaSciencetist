@@ -49,19 +49,19 @@ with st.sidebar:
 @st.cache_data
 # Dataset Describe
 def load_data():
-  dataset_path = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/dataset/dataset_baruku.csv"
+  dataset_path = "https://raw.githubusercontent.com/lutfijulpian/MaetalaSciencetist/refs/heads/main/dataset/dataset_baruku.csv"
   data = pd.read_csv(dataset_path)
   return data
 
 # Dataset Train Mix (categorical and numeric)
 def load_data2():
-  dataset_path2 = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/dataset/dataset_desc.csv"
+  dataset_path2 = "https://raw.githubusercontent.com/lutfijulpian/MaetalaSciencetist/refs/heads/main/dataset/dataset_desc.csv"
   data = pd.read_csv(dataset_path2)
   return data
 
 # All Numeric Dataset Train
 def load_data3():
-  dataset_path3 = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/dataset/dataset_baru.csv"
+  dataset_path3 = "https://raw.githubusercontent.com/lutfijulpian/MaetalaSciencetist/refs/heads/main/dataset/dataset_baru.csv"
   data = pd.read_csv(dataset_path3)
   return data
     
