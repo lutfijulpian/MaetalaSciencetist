@@ -6,5 +6,6 @@ openai
 streamlit-folium
 streamlit-plotly
 leafmap
+streamlit
 Pillow
 requests
