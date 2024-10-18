@@ -69,32 +69,66 @@ def load_data3():
 if selected == 'Home':
   from PIL import Image
 
-  # Load the image logo GreatEdu
-  image_path = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/logo starcore.png"
-  image = Image.open(image_path)
+  # URL gambar logo GreatEdu
+  image_url = "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/logo%20starcore.png?raw=true"
+
+  # Mengunduh gambar
+  response = requests.get(image_url)
+  image = Image.open(io.BytesIO(response.content))
+
+  # Menyimpan gambar ke buffer
   buffered = io.BytesIO()
   image.save(buffered, format="PNG")
+
+  # Mengonversi gambar menjadi string base64
   img_str6 = base64.b64encode(buffered.getvalue()).decode()
 
-  # Load the image logo Tut Wuri Handayani
-  image_path = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/logo komifo.png"
-  image = Image.open(image_path)
+  # Load the image logo Tut Wuri Handay
+  image_url = "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/logo%20komifo.png?raw=true"
+
+  # Mengunduh gambar
+  response = requests.get(image_url)
+  image = Image.open(io.BytesIO(response.content))
+
+  # Menyimpan gambar ke buffer
   buffered = io.BytesIO()
   image.save(buffered, format="PNG")
+
+  # Mengonversi gambar menjadi string base64
   img_str3 = base64.b64encode(buffered.getvalue()).decode()
 
+  #image_path = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/logo komifo.png"
+  #image = Image.open(image_path)
+  #buffered = io.BytesIO()
+  #image.save(buffered, format="PNG")
+  #img_str3 = base64.b64encode(buffered.getvalue()).decode()
+
   # Load the image logo Batik Nasional
-  image_path = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/Kiriman_Instagram_Diskon_Hari_Batik_Nasional_Kolase_Krem_Hitam-removebg-preview (1).png"
-  image = Image.open(image_path)
+  image_url = "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/logomtla.png?raw=true"
+
+  # Mengunduh gambar
+  response = requests.get(image_url)
+  image = Image.open(io.BytesIO(response.content))
+
+  # Menyimpan gambar ke buffer
   buffered = io.BytesIO()
   image.save(buffered, format="PNG")
+
+  # Mengonversi gambar menjadi string base64
   img_str2 = base64.b64encode(buffered.getvalue()).decode()
 
   # Load the image for air
-  image_path = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/gempa_bumi.jpg"
-  image = Image.open(image_path)
+  image_url = "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/gempa_bumi.jpg?raw=true"
+
+  # Mengunduh gambar
+  response = requests.get(image_url)
+  image = Image.open(io.BytesIO(response.content))
+
+  # Menyimpan gambar ke buffer
   buffered = io.BytesIO()
-  image.save(buffered, format="JPEG")
+  image.save(buffered, format="PNG")
+
+  # Mengonversi gambar menjadi string base64
   img_str4 = base64.b64encode(buffered.getvalue()).decode()
 
 
