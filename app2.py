@@ -869,19 +869,21 @@ if selected == 'About Us':
     st.markdown('---')
     from PIL import Image
 
-    # Jalur gambar dari Google Drive
-    ICON_RED = "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/Kiriman_Instagram_Diskon_Hari_Batik_Nasional_Kolase_Krem_Hitam-removebg-preview (1).png"
+    # Jalur gambar dari GitHub
+    ICON_RED = "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/logomtla.png?raw=true"
 
-    # Menampilkan gambar dari Google Drive
-    image = Image.open(ICON_RED)
+    # Mengunduh gambar dari URL GitHub
+    response = requests.get(ICON_RED)
 
-    # Mengonversi gambar menjadi base64 untuk dimasukkan dalam HTML
-    import base64
-    from io import BytesIO
+    # Cek apakah respons yang diterima berupa gambar
+    if 'image' in response.headers['Content-Type']:
+        # Membuka gambar dari respon yang diterima
+        image = Image.open(BytesIO(response.content))
 
-    buffered = BytesIO()
-    image.save(buffered, format="PNG")
-    img_str = base64.b64encode(buffered.getvalue()).decode()
+        # Mengonversi gambar menjadi string base64 untuk digunakan dalam HTML
+        buffered = BytesIO()
+        image.save(buffered, format="PNG")
+        img_str = base64.b64encode(buffered.getvalue()).decode()
 
     st.markdown(
         f"""
@@ -908,28 +910,28 @@ if selected == 'About Us':
     team_members = [
     {
         "name": "Mohammad Faikar Natsir",
-        "image_id": "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/beras.jpg",
+        "image_url": "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/faikar.jpg?raw=true",
         "role": "Modeller",
         "email": "kkkk",
         "description": ""
     },
     {
         "name": "Fedro Rizkyana Padila",
-        "image_id": "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/Fedro.JPG",
-        "role": "Data Analisis",
-        "email": "kkkk",
-        "description": "Bertanggungjawab"
+        "image_url": "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/Fedro.JPG?raw=true",
+        "role": "Data Analyst",
+        "email": "fedro.rizkyana@example.com",
+        "description": "Bertanggung jawab atas analisis data dan pelaporan"
     },
     {
         "name": "Lutfi Julpian",
-        "image_id": "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/Lutfi.jpg",
+        "image_url": "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/Lutfi.jpg?raw=true",
         "role": "Visualization",
         "email": "lutfijulpian@gmail.com",
         "description": "Lutfi bertanggung jawab untuk menciptakan visualisasi data yang intuitif dan informatif. Ia membantu mengubah data mentah menjadi cerita yang menarik."
     },
     {
         "name": "Arif Muhammad Rifai",
-        "image_id": "/content/drive/MyDrive/BPS (Harga Beras)/FINAL/foto/Arif.jpg",
+        "image_url": "https://github.com/lutfijulpian/MaetalaSciencetist/blob/main/foto/Arif.jpg?raw=true",
         "role": "Modeller",
         "email": "kkkk",
         "description": "Bertanggung Jawab"
@@ -941,9 +943,17 @@ if selected == 'About Us':
 
     for member in team_members:
         cols = st.columns([1, 4])
-        if 'image_id' in member:
-            image = Image.open(member["image_id"])
+        
+        # Memeriksa apakah 'image_url' ada dalam data anggota
+        if 'image_url' in member:
+            # Mengunduh gambar dari URL
+            response = requests.get(member["image_url"])
+            image = Image.open(io.BytesIO(response.content))
+            
+            # Mengubah ukuran gambar
             image = image.resize((image_width, image_height))
+            
+            # Menampilkan gambar di kolom pertama
             cols[0].image(image, use_column_width=False)
             st.write('<style>div.Widget.row-widget.stRadio>div{flex-direction:column;}</style>', unsafe_allow_html=True)
         
@@ -959,7 +969,6 @@ if selected == 'About Us':
                 {member['description']}
             </div>
             """, unsafe_allow_html=True)
-
     # Footer
     st.markdown("""
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
