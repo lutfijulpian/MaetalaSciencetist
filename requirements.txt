@@ -9,3 +9,4 @@ leafmap
 streamlit
 Pillow
 requests
+pandas
