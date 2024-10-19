@@ -6,7 +6,12 @@ openai
 streamlit-folium
 streamlit-plotly
 leafmap
-streamlit
 Pillow
 requests
 pandas
+xgboost
+beautifulsoup4
+scipy
+folium
+geopy
+plotly
