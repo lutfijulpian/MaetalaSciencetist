@@ -4,7 +4,7 @@ streamlit==1.38.0
 streamlit-option-menu==0.3.6
 openai
 streamlit-folium
-streamlit-plotly
+streamlit-plotly-chart  # ganti dari streamlit-plotly
 leafmap
 Pillow
 requests
