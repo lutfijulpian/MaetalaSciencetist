@@ -2,15 +2,10 @@ numpy==1.26.3
 scikit-learn==1.2.2
 streamlit==1.38.0
 streamlit-option-menu==0.3.6
-openai
-streamlit-folium
-streamlit-plotly-chart  # ganti dari streamlit-plotly
 leafmap
 Pillow
 requests
 pandas
-xgboost
-beautifulsoup4
 scipy
 folium
 geopy
