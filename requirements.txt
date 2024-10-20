@@ -4,5 +4,4 @@ streamlit==1.38.0
 streamlit_folium
 leafmap
 geopy
-pandas
 streamlit-option-menu==0.3.6
