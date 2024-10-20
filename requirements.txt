@@ -1,12 +1,7 @@
 numpy==1.26.3
 scikit-learn==1.2.2
 streamlit==1.38.0
-streamlit-option-menu==0.3.6
+streamlit_folium
 leafmap
-Pillow
-requests
-pandas
-scipy
-folium
 geopy
-plotly
+streamlit-option-menu==0.3.6
